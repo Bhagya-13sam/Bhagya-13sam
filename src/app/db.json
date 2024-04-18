@@ -1,0 +1,16 @@
+{
+    "product": [
+      
+        {
+        
+
+        "id" : 1,
+        "name": "program 1",
+        "description" : "ECE",
+        "price": 2,
+        "quantity": 3
+
+    }
+    ]
+
+}

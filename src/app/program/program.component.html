@@ -1,0 +1,83 @@
+<nav clas="navbar navbar-light bg-dark">
+    <h2 class="test-light primary py-3 ">
+        Program Management Detail
+    </h2>
+</nav>
+
+<div class="d-flex">
+    <button type="button"(click)="add()"class="btn btn-info" data-bs-toggle="modal"data-bs-target="#exampleModal">Add New program</button>&nbsp;
+    <button routerLink="/CMS Home" class="btn btn-warning"data-bs-dismiss="d-flex">logout</button>
+</div>
+
+
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th scope="col">Program ID</th>
+            <th scope="col">Program Name</th>
+            <th scope="col">Desciption</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of allprogramdata">
+            <td>{{item.pid}}</td>
+            <td>{{item.pname}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.status}}</td>
+            <td>
+            <button type="button" (click)="edit(item)"class="btn btn-success"data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>&nbsp;
+            <button type="button" class="btn btn-danger" (click)="deleteprogram(item)">Delete</button>
+        </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- modal -->
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div style="background:blue;"class="modal-header">
+          <h5 style="color:aliceblue; font-size:20px; margin-left:62px;font-weight: 620;"class="modal-title" id="exampleModalLabel">Program Details</h5>
+        
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="programform">
+
+                <div class="form-group">
+                  <label for="inputp" class="form-label">Program Id</label>
+                  <input type="number" formControlName="pid"class="form-control" id="pid" autocomplete="off" placeholder="Program ID">
+                  <small *ngIf="programform.get('pid')?.invalid && programform.get('pid')?.touched"class="text-danger">Program Id is required</small>
+                   
+                  </div>
+                  <div class="form-group">
+                    <label for="Inputp" class="form-label">Program Name</label>
+                    <input type="string" formControlName="pname" class="form-control" id="pname" placeholder="Program Name">
+                   
+                    
+                    </div>
+                    <div class="form-group">
+                        <label for="Inputp" class="form-label">Description</label>
+                        <input type="string" formControlName="description" class="form-control" id="desciption" placeholder="Desciption">
+                          
+                        
+                        </div>
+                        <div class="form-group">
+                            <label for="Inputp" class="form-label">Status</label>
+                            <input type="string" formControlName="status" class="form-control" id="status" placeholder="Status">
+                            </div>
+
+              </form>
+        </div>
+        <div style="background:blue;" class="modal-footer">
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+          <button *ngIf="showadd"class="btn btn-success"(click)="addprogram()"[disabled]="this.programform.invalid"type="submit">Add</button>
+          <button *ngIf="showupdate"class="btn btn-success"(click)="update()" [disabled]="this.programform.invalid"type="button">Update</button>
+          
+        </div>
+      </div>
+    </div>
+
+    
+</div>

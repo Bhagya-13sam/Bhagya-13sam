@@ -1,0 +1,33 @@
+<p>home works!</p>
+<div>
+    <h1>My Products</h1>
+   
+    
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>                            
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.description}}</td>
+                <td>{{product.quantity}}</td>
+                <td>
+                    <button type="button" [routerLink]="['../update/', product.id]">Update</button>
+                    <button type="button" [routerLink]="['../create/', product.id]">Create new product</button>
+                    <button type="button" [routerLink]="['../delete/', product.id]">Create delete product</button>
+                  
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
