@@ -2,8 +2,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import{ Programdata }from './program/program.model';
-import { map } from 'rxjs/internal/operators/map';
+import { Programdata } from './program/program.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +15,7 @@ export class ApiService {
   //add pogram
 
   postprogram(data:any){
-    return this.http.post<Programdata>("http://localhost:3000/posts",data);
+    return this.http.post<Programdata>("http://localhost:4200/posts",data);
     
     
   }
@@ -26,7 +25,7 @@ export class ApiService {
   
 //get
 getprogram(){
-  return this.http.get<any>("http://localhost:3000/posts");
+  return this.http.get<any>("http://localhost:4200/posts");
  
   
 }
@@ -34,7 +33,7 @@ getprogram(){
 //Update
 
 updateprogram(data:any,id:number){
-  return this.http.put("http://localhost:3000/posts/"+ id,data);
+  return this.http.put("http://localhost:4200/posts/"+ id,data);
   
 }
 
