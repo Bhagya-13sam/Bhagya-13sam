@@ -1,5 +1,5 @@
 export const environment = {
     production: false,
-    apiUrl: 'http://localhost:4200', // Assuming your local server runs on port 3000
+    apiUrl: 'https://cms-assignment-7900b8e41377.herokuapp.com',
     // Add other environment-specific configurations here
   };
